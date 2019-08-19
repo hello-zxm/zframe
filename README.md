@@ -55,14 +55,18 @@ func onStop(conn zinterface.IConnection) {
 
 func main() {
 
+    //create a new server
 	s := znet.NewServer()
 
+    //add router with type
 	s.AddRouter(1, &TestRouter{})
 
-
+    //register on start func
 	s.RegisterOnConnStart(onStart)
+	//register on stop func
 	s.RegisterOnConnStop(onStop)
 
+    //run the server
 	s.Run()
 
 }
